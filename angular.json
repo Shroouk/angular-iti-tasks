@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "project-day-one"
+  "defaultProject": "project-day-one",
+  "cli": {
+    "analytics": false
+  }
 }

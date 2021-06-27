@@ -1,0 +1,22 @@
+<div class="container">
+<h5 class="blue">Hello from test component, {{getFullName()}}</h5>
+
+
+
+<div class="grid">
+    <div>
+        <input type="text" [value]="firstName" ><br>
+        <input type="text" placeholder="change your first name & enter " #inputfirstName (keyup.enter)="onFirstNameChange(inputfirstName.value)"><br>
+        <input type="text" placeholder="change your last name  " [(ngModel)]="laststName"><br>
+        <input type="number" placeholder="enter your age" [(ngModel)]="age"><br>
+
+        <button (click)="changeAge()">Change Age</button>
+    </div>
+    <div class="info">
+        <span>First name: </span>{{firstName}} <br>
+        <span>Last name: </span>{{laststName}} <br>
+        <span *ngIf="age>=20">Age: {{age}}</span> 
+        <span [hidden]="age>=20" [class.red]="age<20">Sorry your age is less than 20</span>
+    </div>
+  </div>
+</div>

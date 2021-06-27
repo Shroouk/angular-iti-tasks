@@ -1,0 +1,39 @@
+<header></header>
+    <div class="row">
+        
+          <div class="container">  
+            <form id="contact" [formGroup]="form">
+              <h3>Add STUDENT</h3>
+              <fieldset>
+                <div *ngIf="form.controls['FirstName'].invalid && (form.controls['FirstName'].touched || form.controls['FirstName'].dirty)">
+                    <span class="form-text text-danger float-right" *ngIf="form.controls['FirstName'].hasError('required')">*</span> 
+                    <span class="form-text text-danger float-right" *ngIf="form.controls['FirstName'].hasError('minlength')">min length is 3</span> 
+                    <span class="form-text text-danger" *ngIf="form.controls['FirstName'].hasError('maxlength')">max length is 10</span> 
+                </div>
+                <input placeholder="First name" type="text" [class.err]="form.controls['FirstName'].hasError('required')" formControlName="FirstName" autofocus>
+              </fieldset>
+              
+              <fieldset>
+                <div *ngIf="form.controls['LastName'].invalid && (form.controls['LastName'].touched || form.controls['LastName'].dirty)">
+                    <span class="form-text text-danger float-right" *ngIf="form.controls['LastName'].hasError('required')">*</span> 
+                    <span class="form-text text-danger float-right" *ngIf="form.controls['LastName'].hasError('minlength')">min length is 3</span> 
+                    <span class="form-text text-danger" *ngIf="form.controls['LastName'].hasError('maxlength')">max length is 10</span> 
+                </div>
+                <input placeholder="Last name" type="text" formControlName="LastName" required>
+              </fieldset>
+              <fieldset>
+                <div *ngIf="form.controls['Mobile'].invalid && (form.controls['Mobile'].touched || form.controls['Mobile'].dirty)">
+                    <span class="form-text text-danger float-right" *ngIf="form.controls['Mobile'].hasError('required')">*</span>
+                </div>
+                <input placeholder="Phone Number" type="tel" formControlName="Mobile" required >
+              </fieldset>
+              
+              <fieldset>
+                <button name="submit" type="submit" [disabled]="form.invalid" [class.disabled]="form.invalid" class="add" (click)="addStudent()">Add Student</button>
+              </fieldset>
+            </form>
+          </div>
+        
+       
+      </div>
+  

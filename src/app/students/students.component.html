@@ -1,0 +1,53 @@
+<header></header>
+    <div class="row">
+      <div class="col">
+        <div class="container">  
+          <form id="contact" >
+            <h3>STUDENT FORM</h3>
+            <fieldset>
+              <input placeholder="First name" type="text"  autofocus #inputFirstName>
+            </fieldset>
+            <fieldset>
+              <input placeholder="Last name" type="text" required #inputLastName>
+            </fieldset>
+            <fieldset>
+              <input placeholder="Phone Number" type="tel"  required #inputPhone>
+            </fieldset>
+            
+            <fieldset>
+              <button name="submit" class="add" (click)="addStudent(inputFirstName.value,inputLastName.value,inputPhone.value); inputFirstName.value='';inputLastName.value='';inputPhone.value=''">Add Student</button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+      <div class="col">
+        <table class="content-table">
+          <thead>
+            <tr>
+              <th>#</th>
+               <th>First NAME</th>
+              <th>Last NAME</th>
+              <th>Student Name</th>
+              <th>Mobile</th>
+              <!-- <th>Status</th> -->
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of students;let currentIndex=index">
+              <td>{{currentIndex+1}}</td>
+              <td>{{item.FirstName | uppercase}}</td>
+              <td>{{item.LastName}}</td>
+              <td> {{item.Name | maxLength:10}} </td>
+              <td>{{item.Mobile}}</td> 
+              
+              <!-- <td><input type="checkbox" (change)="changeStatus(item)" [checked]="item.IsDone"> </td> -->
+              <td> <button (click)="removeStudent(currentIndex)" class="btn btn-light"><i class="far fa-trash-alt "></i></button></td>
+            </tr>
+           
+          </tbody>
+          
+          
+        </table>
+      </div>
+    </div>
